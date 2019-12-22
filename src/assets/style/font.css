@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Raleway Regular';
+  src: url(/src/assets/fonts/Raleway-Regular.woff) format('woff');
+  src: url(/assets/fonts/Raleway-Regular.woff) format('woff');
+  font-weight: 400;
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  font-family: 'Raleway Regular';
+}
+p {
+font-family: 'Raleway Regular';
+line-height: 2rem;
+}

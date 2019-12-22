@@ -1,0 +1,124 @@
+.app {
+    margin-top: 20px;
+}
+
+.primary-color {
+    color: #0085F0;
+}
+
+.text-hidden {
+    color: #d2d2d2;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+// React date-picker
+.date-picker-custom {
+    width: 300px;
+    border-radius: 10px;
+    margin-top: 23px;
+}
+.react-datepicker__header__dropdown {
+    margin: 8px 0px !important;
+}
+//
+
+// React-select
+.auto-select {
+    border-radius: 10px !important;
+    width: 300px;
+}
+.css-1pahdxg-control {
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25) !important; 
+    outline:0 !important;
+    border-color:#80bdff !important;
+    background-color:#fff !important;
+    color: #495057 !important;
+    border-radius: 10px !important;
+}
+.css-1pahdxg-control:hover {
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25) !important; 
+    outline:0 !important;
+    border-color:#80bdff !important;
+    background-color:#fff !important;
+    color: #495057 !important;
+    border-radius: 10px !important;
+}
+.css-yk16xz-control {
+    border-radius: 10px !important;
+}
+.css-1okebmr-indicatorSeparator {
+    display: none;
+}
+.css-1gtu0rj-indicatorContainer:first-child {
+    display: none !important;
+}
+//
+
+// React-table
+.list-item-heading {
+    font-size: 1rem;
+  }
+.rt-resizable-header-content {
+    text-align: left !important;
+    padding: 10px 0px;
+    font-variant: small-caps;
+
+}
+.rt-thead.-header {
+    box-shadow: none !important;
+}
+.rt-th.-sort-asc {
+    box-shadow: inset 0 3px 0 0 #0085f0 !important;
+}
+
+// Applicants List
+.flex-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+.appls-list-card {
+    width: auto;
+  }
+.appls-list-card-body-title {
+    padding-left: 14px;
+    font-size: 15px;
+    font-variant: small-caps;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 97%;
+    flex-grow: 1;
+    cursor: pointer; 
+  }
+.appls-list-card-body-collapse-style {
+    margin-top: 10px;
+    width: 100%;
+  }
+.progress{
+    height: 4px !important;
+}
+.nav-link.active {
+    color: #007bff !important;
+}
+.nav-link.passive {
+    color:#909090 !important;
+}
+.appls-detail-table {
+    font-size: 1rem;
+    margin-top: 30px;
+  }
+.appls-detail-table td {
+    padding-right: 80px;
+  }
+.appls-detail-table tr:nth-child(odd) {
+    background-color: #f1f1f3;
+  }
+.appls-detail-table td:first-child {
+    color: #909090;
+  }
