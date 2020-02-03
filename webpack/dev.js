@@ -5,9 +5,9 @@ const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const baseConfig = require('./base');
 
-const HOST = process.env.DEV_SERVER_INT || '127.0.0.1'
-const PORT = process.env.DEV_SERVER_PORT || 8008
-const DEFAULT_BROWSER = process.env.DEV_SERVER_BROWSER || 'google-chrome'
+const HOST = process.env.DEV_WEB_SERVER_HOST || '127.0.0.1'
+const PORT = process.env.DEV_WEB_SERVER_PORT || 8008
+const DEFAULT_BROWSER = process.env.DEFAULT_BROWSER || 'google-chrome'
 
 module.exports = merge(baseConfig, {
   mode: 'development',

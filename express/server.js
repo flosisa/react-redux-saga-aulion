@@ -14,5 +14,5 @@ app.get('*', (req, res) => {
 // hide powered by express in headers
 app.disable('x-powered-by');
 
-const port = process.env.PROD_SERVER_PORT || 8010;
+const port = process.env.PROD_WEB_SERVER_PORT || 8010;
 app.listen(port, () => console.log(`Node.js Web Server is working on port [:${port}]`));
