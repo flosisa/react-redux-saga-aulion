@@ -1,38 +1,37 @@
-# react-redux-saga-aulion
+<h2><b>React pattern/sample/template with Redux</b></h2>
 
-React/Redux-with-saga
 ---
 
-
-
 # Installation
-cd myproject/ <br />
-git clone https://github.com/flosisa/react-redux-saga-aulion.git
+mkdir project <br />
+cd project/ <br />
+git clone http://github.com/main-url/some-url.git
 
-cd react-redux-saga-aulion/ <br />
+cd some-url/ <br />
 npm install
 
 # Before starting the engine!
-- if environment DEV_SERVER_INT exists use it, or 127.0.0.1 <br />
-const HOST = process.env.DEV_SERVER_INT || '127.0.0.1'
+<em>/webpack/dev.js</em>
+- if environment DEV_WEB_SERVER_HOST exists use it, or 127.0.0.1 <br />
+const HOST = process.env.DEV_WEB_SERVER_HOST || '127.0.0.1'
 
-- if environment DEV_SERVER_PORT exists use it, or 8008 <br />
-const PORT = process.env.DEV_SERVER_PORT || 8008
+- if environment DEV_WEB_SERVER_PORT exists use it, or 7111 <br />
+const PORT = process.env.DEV_WEB_SERVER_PORT || 7111
 
-- if environment DEV_SERVER_BROWSER exists use it, or 'google-chrome' (for windows, use 'chrome') <br />
-const DEFAULT_BROWSER = process.env.DEV_SERVER_BROWSER || 'google-chrome'
+- if environment DEFAULT_BROWSER exists use it, or 'google-chrome' (for windows, use 'chrome') <br />
+const DEFAULT_BROWSER = process.env.DEFAULT_BROWSER || 'google-chrome'
 
-- if environment PROD_SERVER_PORT exists use it, or 8010 <br />
-const port = process.env.PROD_SERVER_PORT || 8010
+<em>/express/server.js</em>
+- if environment PROD_WEB_SERVER_PORT exists use it, or 8111 <br />
+const port = process.env.PROD_WEB_SERVER_PORT || 8111
 
-# Start
-- starts in development mode <br />
+# Start a project
+- start in development mode <br />
 npm start
 
-- starts in production mode <br />
+- start in production mode <br />
 npm run build
 
-
-
 ---
-All rights reserved. Created by aulion.
+Authorship:
+- Created by: Laziz Toshmukhamedov

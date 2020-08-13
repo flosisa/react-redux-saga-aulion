@@ -2,17 +2,25 @@
 
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const fs = require('fs')
+const path = require('path');
 const baseConfig = require('./base');
 
-const HOST = process.env.DEV_WEB_SERVER_HOST || '127.0.0.1'
-const PORT = process.env.DEV_WEB_SERVER_PORT || 8008
+const HOST = process.env.DEV_WEB_SERVER_HOST || 'localhost'
+const PORT = process.env.DEV_WEB_SERVER_PORT || 7111
 const DEFAULT_BROWSER = process.env.DEFAULT_BROWSER || 'google-chrome'
+const API_SERVER_HOST = process.env.API_SERVER_HOST || 'localhost'
+const API_SERVER_PORT = process.env.API_SERVER_PORT || 7112
 
 module.exports = merge(baseConfig, {
   mode: 'development',
 
   devServer: {
+    // https: {
+    //   key: fs.readFileSync(path.resolve(__dirname, '../src/util/ssl/server.key')),
+    //   cert: fs.readFileSync(path.resolve(__dirname, '../src/util/ssl/server.crt')),
+    //   // ca: fs.readFileSync('/path/to/ca.pem'),
+    // },
     clientLogLevel: 'warning',
     hot: true,
     inline: true,
@@ -27,6 +35,12 @@ module.exports = merge(baseConfig, {
     watchOptions: {
       poll: false,
       ignored: /node_modules/
+    },
+    proxy: {
+      '/api': {
+        target: `http://${API_SERVER_HOST}:${API_SERVER_PORT}`,
+        secure: false
+      }
     }
   },
 
@@ -40,30 +54,11 @@ module.exports = merge(baseConfig, {
             options: { minimize: true }
           }
         ]
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader"
-        ]
-      },
-      {
-        test: /\.(woff|woff2|ttf|eot)$/,
-        use: 'file-loader?name=fonts/[name].[ext]!static'
       }
     ]
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "assets/css/[name].[hash:4].css"
-    })
+    new webpack.HotModuleReplacementPlugin()
   ]
 });

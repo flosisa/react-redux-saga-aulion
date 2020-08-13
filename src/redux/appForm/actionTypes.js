@@ -1,2 +1,0 @@
-export const STEPS = 'STEPS';
-export const PERSONAL_SKILLS_LIST = 'PERSONAL_SKILLS_LIST'

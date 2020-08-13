@@ -1,5 +1,7 @@
 export const INDEX = '/'
 
+export const JURIDICAL_ENTITIES = '/juridical-entities'
+export const PHYSICAL_ENTITIES = '/physical-entities'
+
 // 404
-export const ERROR = 'error'
-export const ERROR_URL = `/${ERROR}`
+export const ERROR = '/error'

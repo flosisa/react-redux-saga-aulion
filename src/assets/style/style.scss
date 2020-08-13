@@ -1,124 +1,96 @@
-.app {
-    margin-top: 20px;
+// brief example for styling (only with html element)
+
+:root {
+  --background-color: #d1ebd8;
+
+  --primary-color: #acd128;
+  --secondary-color: #f5024f;
+  --tertiary-color: #32a852;
+
+  --attention-color: #ff0000;
+  --warn-color: #f5a002;
+  --low-color: #d2d2d2;
 }
 
-.primary-color {
-    color: #0085F0;
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none !important;
 }
 
-.text-hidden {
-    color: #d2d2d2;
+body {
+  background-color: var(--background-color);
+  margin: 0px;
+  padding: 0px;
 }
-
-.flex {
-    display: flex;
-    align-items: center;
+p,
+span,
+a {
+  margin: 0px;
+  padding: 2px 0px 0px 0px;
 }
-
-// React date-picker
-.date-picker-custom {
-    width: 300px;
-    border-radius: 10px;
-    margin-top: 23px;
-}
-.react-datepicker__header__dropdown {
-    margin: 8px 0px !important;
-}
-//
-
-// React-select
-.auto-select {
-    border-radius: 10px !important;
-    width: 300px;
-}
-.css-1pahdxg-control {
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25) !important; 
-    outline:0 !important;
-    border-color:#80bdff !important;
-    background-color:#fff !important;
-    color: #495057 !important;
-    border-radius: 10px !important;
-}
-.css-1pahdxg-control:hover {
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25) !important; 
-    outline:0 !important;
-    border-color:#80bdff !important;
-    background-color:#fff !important;
-    color: #495057 !important;
-    border-radius: 10px !important;
-}
-.css-yk16xz-control {
-    border-radius: 10px !important;
-}
-.css-1okebmr-indicatorSeparator {
-    display: none;
-}
-.css-1gtu0rj-indicatorContainer:first-child {
-    display: none !important;
-}
-//
-
-// React-table
-.list-item-heading {
-    font-size: 1rem;
+button {
+  outline: initial !important;
+  background-color: var(--primary-color);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 14px;
+  border: 2px solid #fff;
+  height: 50px;
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: transparent;
   }
-.rt-resizable-header-content {
-    text-align: left !important;
-    padding: 10px 0px;
-    font-variant: small-caps;
-
+  &.secondary {
+    background-color: var(--tertiary-color);
+    border: 2px solid var(--secondary-color);
+    &:hover {
+      background-color: rgba(250, 214, 55, 0.1);
+    }
+    & > p {
+      color: var(--secondary-color);
+    }
+  }
+  &.outline {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    &:hover {
+      background-color: rgba(250, 214, 55, 0.1);
+    }
+    & > p {
+      color: var(--secondary-color);
+    }
+  }
+  &.transparent {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    width: initial !important;
+  }
+  &:disabled {
+    @extend .point-e-none;
+    border: 2px solid var(--low-color);
+    & > p {
+      @extend .low-color;
+    }
+  }
 }
-.rt-thead.-header {
-    box-shadow: none !important;
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  &:hover {
+    color: var(--tertiary-color);
+  }
 }
-.rt-th.-sort-asc {
-    box-shadow: inset 0 3px 0 0 #0085f0 !important;
+textarea {
+  resize: none;
 }
-
-// Applicants List
-.flex-wrap {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-  }
-.appls-list-card {
-    width: auto;
-  }
-.appls-list-card-body-title {
-    padding-left: 14px;
-    font-size: 15px;
-    font-variant: small-caps;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    max-width: 97%;
-    flex-grow: 1;
-    cursor: pointer; 
-  }
-.appls-list-card-body-collapse-style {
-    margin-top: 10px;
-    width: 100%;
-  }
-.progress{
-    height: 4px !important;
+hr {
+  border-top: 1px solid #fff;
+  margin: 24px 0px;
 }
-.nav-link.active {
-    color: #007bff !important;
-}
-.nav-link.passive {
-    color:#909090 !important;
-}
-.appls-detail-table {
-    font-size: 1rem;
-    margin-top: 30px;
-  }
-.appls-detail-table td {
-    padding-right: 80px;
-  }
-.appls-detail-table tr:nth-child(odd) {
-    background-color: #f1f1f3;
-  }
-.appls-detail-table td:first-child {
-    color: #909090;
-  }

@@ -1,58 +1,34 @@
-import React from 'react'
+import React from "react";
+import ReactDatePicker from "react-date-picker";
+import CalendarIcon from "Assets/svg/calendar.svg";
 import { prop } from 'ramda'
-import DatePicker from 'react-datepicker'
-// import "react-datepicker/dist/react-datepicker.css";
-import "react-datepicker/src/stylesheets/datepicker.scss";
-import ExclamationIcon from 'Assets/svg/exclamation-circle-solid.svg';
-import { FormFeedback, Label } from 'reactstrap'
-import classNames from 'classnames'
+import cx from 'clsx'
 
-function DateField(props) {
+const DateField = props => {
   const {
     input,
-    dateFormat,
-    style,
-    placeholder,
+    className,
     errorText,
-    showMonthDropdown,
-    showYearDropdown,
-    dropdownMode,
-    meta: { touched, error, active },
+    meta,
+    label
   } = props
-
-  const value = prop('value', input) || null
-
-  function handleChange(date) {
-    const { input: { onChange } } = props
-
-    onChange(date)
-  }
+  const { touched, error } = meta || ''
 
   return (
-    <div>
-      <Label style={{ color: '#0085F0', marginBottom: 0 }}>{active ? placeholder : ''}</Label>
-      <DatePicker
-        className={classNames({ 'is-invalid': touched && error }, 'form-control', 'date-picker-custom')}
-        dateFormat={dateFormat}
-        onChange={handleChange}
-        selected={value}
-        style={style}
-        placeholderText={placeholder}
-        showMonthDropdown={showMonthDropdown}
-        showYearDropdown={showYearDropdown}
-        dropdownMode={dropdownMode}
-      />
-      {
-        touched && error
-          ? <div style={{ paddingTop: 4, display: 'flex', alignItems: 'center' }}>
-            <ExclamationIcon style={{ width: 20, height: 20, color: '#dc3545', paddingRight: 4 }} />
-            <FormFeedback style={{ display: 'inline', marginTop: 2 }}>{errorText || error}</FormFeedback>
-          </div> : <div style={{ paddingTop: 0, visibility: 'hidden' }}>
-            <ExclamationIcon style={{ width: 20, height: 20, color: '#dc3545', paddingRight: 0 }} />
-          </div>
-      }
+    <div className="form-field">
+      <div>{label}</div>
+      <div>
+        <ReactDatePicker
+          value={prop('value', input)}
+          onChange={prop('onChange', input)}
+          className={cx('date-picker', `${className}`, error && touched && 'date-picker__invalid')}
+          format="dd.MM.yyyy"
+          calendarIcon={<CalendarIcon />}
+        />
+        {touched && error && <div className="form-input__required">{errorText || error}</div>}
+      </div>
     </div>
   )
-}
+};
 
-export default DateField;
+export default DateField

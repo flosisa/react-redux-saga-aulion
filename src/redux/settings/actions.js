@@ -1,11 +1,5 @@
-import { setLanguage } from 'Util/languageStorage'
-import { CHANGE_LOCALE } from './actionTypes'
+import { LOCALE } from './actionTypes'
 
-export const changeLocale = (locale) => {
-  setLanguage(locale)
-
-  return ({
-    type: CHANGE_LOCALE,
-    payload: locale,
-  })
-}
+export const locale = payload => ({
+  type: LOCALE, payload
+});

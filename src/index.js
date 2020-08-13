@@ -26,8 +26,8 @@ const store = createStore(reducers(history), composeEnhancers(applyMiddleware(..
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('react-container')
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('react-container')
 );

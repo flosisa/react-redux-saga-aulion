@@ -1,14 +1,19 @@
-import { getLanguage } from 'Util/languageStorage'
-import { CHANGE_LOCALE } from './actionTypes'
+// simple reducer
+
+import { defaultLocale } from 'Constants/appDefaults'
+import { getUserLocale } from 'Util/storages'
+import { LOCALE } from './actionTypes'
+import * as STATES from './states'
+import { prop } from 'ramda'
 
 const INIT_STATE = {
-  locale: getLanguage()
+  locale: prop('locale', getUserLocale()) || defaultLocale
 }
 
 export default (state = INIT_STATE, action) => {
   switch (action.type) {
-    case CHANGE_LOCALE:
-      return { ...state, locale: action.payload }
+    case LOCALE:
+      return { ...state, [STATES.LOCALE]: action.payload }
 
     default: return { ...state }
   }

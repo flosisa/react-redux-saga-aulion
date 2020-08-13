@@ -3,6 +3,9 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const dev = process.env.NODE_ENV === 'development'
 
 module.exports = {
   entry: {
@@ -19,12 +22,13 @@ module.exports = {
   resolve: {
     alias: {
       Components: path.resolve(__dirname, '../src/components'),
+      Containers: path.resolve(__dirname, '../src/containers'),
       Redux: path.resolve(__dirname, '../src/redux'),
       Constants: path.resolve(__dirname, '../src/constants'),
       Assets: path.resolve(__dirname, '../src/assets'),
       Util: path.resolve(__dirname, '../src/util'),
-      Lang: path.resolve(__dirname, '../src/lang/'),
-      Api: path.resolve(__dirname, '../src/api/')
+      Locale: path.resolve(__dirname, '../src/locale'),
+      Api: path.resolve(__dirname, '../src/api'),
     }
   },
 
@@ -35,28 +39,12 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
-          //This plugin will allow you to pull in just the pieces of library you need, instead of the entire library to be loaded, without a separate import for each item. 
-          //   query: {
-          //     plugins: [
-          //         [require('babel-plugin-transform-imports'), {
-          //           "react-bootstrap": {
-          //                 transform: "react-bootstrap/lib/${member}",
-          //                 preventFullImport: true
-          //             },
-          //             "lodash": {
-          //               "transform": "lodash/${member}",
-          //               "preventFullImport": true
-          //           }
-          //         }]
-          //     ]
-          // },
           options: {
             presets: [
               '@babel/preset-env',
               '@babel/preset-react'
             ],
             plugins: [
-              //'@babel/plugin-syntax-dynamic-import',
               '@babel/plugin-proposal-class-properties',
               '@babel/plugin-proposal-export-namespace-from',
               "@babel/plugin-transform-runtime"
@@ -67,6 +55,30 @@ module.exports = {
       {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.css$/,
+        use: [dev ? 'style-loader' : MiniCssExtractPlugin.loader, "css-loader"]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          dev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader"
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/fonts/'
+            }
+          }
+        ]
       }
     ]
   },
@@ -88,8 +100,9 @@ module.exports = {
       }
     }),
     new CopyWebpackPlugin([
-      { from: 'src/assets/img', to: 'assets/img' },
-      { from: 'src/assets/fonts', to: 'assets/fonts' }
+      { from: 'src/assets/fonts', to: 'assets/fonts' },
+      { from: 'src/assets/icons', to: 'assets/icons' },
+      { from: 'src/assets/img', to: 'assets/img' }
     ])
   ]
 };

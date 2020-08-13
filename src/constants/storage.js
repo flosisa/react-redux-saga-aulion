@@ -1,1 +1,2 @@
-export const CURRENT_LANGUAGE = 'currentLanguage'
+export const CURRENT_LOCALE = 'currentLocale'
+export const AUTH_TOKEN = 'authToken'

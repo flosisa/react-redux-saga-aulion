@@ -9,11 +9,11 @@ import 'Assets/style/style.scss';
 import 'Assets/style/font.css';
 
 const App = () => (
-    <ConnectedRouter history={history}>
-        <Switch>
-            <Route path="/" component={Index} />
-        </Switch>
-    </ConnectedRouter>
+  <ConnectedRouter history={history}>
+    <Switch>
+      <Route path="/" component={Index} />
+    </Switch>
+  </ConnectedRouter>
 )
 
 export default App;

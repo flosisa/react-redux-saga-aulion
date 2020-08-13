@@ -1,11 +1,15 @@
 import { all } from 'redux-saga/effects'
 
-import login from './sagas/login/saga'
-import logout from './sagas/logout/saga'
+import signUp from './sagas/signUp/saga'
+import signIn from './sagas/signIn/saga'
+import signOut from './sagas/signOut/saga'
+import account from './sagas/account/saga'
 
 export default function* rootSaga() {
   yield all([
-    ...login,
-    ...logout
+    ...signUp,
+    ...signIn,
+    ...signOut,
+    ...account,
   ])
 }
