@@ -26,11 +26,11 @@ function createReducerState(actionType, getState) {
         [getState]: {
           data: null,
           loading: false,
-          error: error,
+          error,
         },
       }
     },
-    [`${actionType}_CLEAR`](state, { error }) {
+    [`${actionType}_CLEAR`](state) {
       return {
         ...state,
         [getState]: {
