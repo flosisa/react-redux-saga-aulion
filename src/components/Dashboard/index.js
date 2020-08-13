@@ -8,7 +8,7 @@ import HomeContext from 'Contexts/HomeContext'
 import { isEmpty } from 'ramda'
 
 export default props => {
-  const { countAll, countByRegion } = props
+  const { regions, districtsByRegion } = props
 
   const [selectedYear, setYear] = useState(currentYear);
   const [selectedMonth, setMonth] = useState(currentMonth);
@@ -28,9 +28,9 @@ export default props => {
           Статистика
         </h2>
         {
-          !isEmpty(countAll) && <div style={{ display: "flex" }}>
+          !isEmpty(regions) && <div style={{ display: "flex" }}>
             <div style={{ marginRight: 50 }}>
-              <Pie data={pieData(countAll)} />
+              <Pie data={pieData(regions)} />
             </div>
             <Pie data={pieData2} />
           </div>
@@ -55,7 +55,7 @@ export default props => {
           </div>
         </div>
         <div style={{ overflow: "auto" }}>
-          <Bar data={barData(countByRegion)} />
+          <Bar data={barData(districtsByRegion)} />
         </div>
       </section>
     </div>
